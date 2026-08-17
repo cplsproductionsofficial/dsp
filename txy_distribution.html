@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TXY DISTRIBUTION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#000;font:14px "IBM Plex Mono",monospace}a,button{color:inherit;font:inherit}button{background:none;border:0;cursor:pointer}.wrap{max-width:1100px;margin:auto;padding:28px}.nav{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid #000;padding-bottom:22px}.nav div{display:flex;gap:22px;flex-wrap:wrap}.nav button{text-transform:uppercase}.nav button:hover,.active{text-decoration:underline}.page{display:none;padding:70px 0}.page.on{display:block}.hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center}.hero h1{font-size:clamp(42px,9vw,100px);font-weight:500;line-height:.9;margin:0 0 30px;letter-spacing:-5px}.hero p{max-width:650px;line-height:1.8}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#000;border:1px solid #000}.card{background:#fff;padding:25px;min-height:150px}.card h3{margin:0 0 18px;font-weight:500}.muted{opacity:.55}.title{font-size:30px;margin:0 0 35px;font-weight:500}.row{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid #000;padding:16px 0}.form{max-width:700px}.field{margin:0 0 24px}.field label{display:block;margin-bottom:9px}.field input,.field select,.field textarea{width:100%;border:1px solid #000;padding:13px;background:#fff;color:#000;font:inherit}.field textarea{min-height:110px;resize:vertical}.check{display:flex;gap:10px;align-items:center;margin:12px 0}.check input{accent-color:#000}.btn{border:1px solid #000;padding:13px 18px;text-transform:uppercase}.btn:hover{background:#000;color:#fff}.notice{border:1px solid #000;padding:18px;line-height:1.7;margin:25px 0}.steps{counter-reset:s}.step{border-top:1px solid #000;padding:22px 0}.step:before{counter-increment:s;content:"0" counter(s) "  ";}.footer{border-top:1px solid #000;padding:25px 0;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px}
+@media(max-width:600px){.wrap{padding:20px}.nav{display:block}.nav div{margin-top:18px;gap:14px}.page{padding:45px 0}.hero h1{letter-spacing:-3px}}
+
+#login{position:fixed;inset:0;background:#fff;z-index:99;display:flex;align-items:center;justify-content:center}.login{width:min(420px,calc(100% - 40px))}.login h1{font-size:28px;font-weight:500;margin:0 0 30px}.login input{width:100%;border:1px solid #000;padding:14px;font:inherit;margin-bottom:12px}.err{height:20px;margin-top:12px}
+</style>
+</head>
+<body>
+<div id="login"><form class="login" onsubmit="return unlock()"><h1>TXY DISTRIBUTION</h1><p>PRIVATE ACCESS</p><input id="pw" type="password" placeholder="PASSWORD" autocomplete="current-password" autofocus><button class="btn">ENTER →</button><div id="err" class="err"></div></form></div>
+<div class="wrap">
+<header class="nav"><button onclick="go('home')" class="active" id="logo">TXY DISTRIBUTION</button><div>
+<button onclick="go('home')">Home</button><button onclick="go('releases')">Releases</button><button onclick="go('upload')">Upload</button><button onclick="go('artists')">Artists</button><button onclick="go('account')">Account</button><button onclick="go('about')">About</button>
+</div></header>
+
+<main>
+<section id="home" class="page on"><div class="hero"><h1>YOUR MUSIC.<br>YOUR NAME.</h1><p>TXY DISTRIBUTION is a personal music-distribution platform concept built for independent artists and labels. Prepare releases, manage metadata, organize your catalog and send music to digital services from one place.</p><p><button class="btn" onclick="go('upload')">START A RELEASE →</button></p></div>
+<div class="grid"><div class="card"><h3>01 / DISTRIBUTION</h3><p>Prepare releases for Spotify, Apple Music, YouTube Music and other digital services.</p></div><div class="card"><h3>02 / METADATA</h3><p>Manage artists, titles, credits, artwork, dates, identifiers, copyright and territories.</p></div><div class="card"><h3>03 / CATALOG</h3><p>Keep your releases, versions and delivery status organized in one catalog.</p></div></div></section>
+
+<section id="releases" class="page"><h2 class="title">RELEASES</h2><div class="notice">Your catalog will appear here after you create releases. A real distribution backend would later connect this dashboard to DSP delivery.</div><div class="grid"><div class="card"><h3>RELEASE STATUS</h3><p>Draft<br>Submitted<br>Processing<br>Delivered<br>Live<br>Rejected</p></div><div class="card"><h3>IDENTIFIERS</h3><p>ISRC — track identifier<br>UPC/EAN — release identifier<br>Catalog number — internal identifier</p></div><div class="card"><h3>DELIVERY</h3><p>Spotify<br>Apple Music<br>YouTube Music<br>Amazon Music<br>Deezer<br>TIDAL<br>and more</p></div></div></section>
+
+<section id="upload" class="page"><h2 class="title">NEW RELEASE</h2><div class="form">
+<div class="field"><label>RELEASE TYPE</label><select><option>Single</option><option>EP</option><option>Album</option></select></div>
+<div class="field"><label>ARTIST NAME</label><input placeholder="TXY"></div>
+<div class="field"><label>RELEASE TITLE</label><input placeholder="Title"></div>
+<div class="field"><label>VERSION / MIX</label><input placeholder="Original Mix / Remastered / Sped Up..."></div>
+<div class="field"><label>GENRE</label><input placeholder="Electronic"></div>
+<div class="field"><label>LANGUAGE</label><input placeholder="English"></div>
+<div class="field"><label>RELEASE DATE</label><input type="date"></div>
+<div class="field"><label>ORIGINAL RELEASE DATE</label><input type="date"></div>
+<div class="field"><label>LABEL / IMPRINT</label><input placeholder="TXY"></div>
+<div class="field"><label>℗ SOUND RECORDING COPYRIGHT</label><input placeholder="© 2026 TXY"></div>
+<div class="field"><label>© COMPOSITION COPYRIGHT</label><input placeholder="© 2026 TXY"></div>
+<div class="field"><label>UPC / EAN</label><input placeholder="Leave blank if not assigned"></div>
+<div class="field"><label>ISRC</label><input placeholder="Leave blank if not assigned"></div>
+<div class="field"><label>ARTWORK</label><input type="file" accept="image/*"></div>
+<div class="field"><label>AUDIO</label><input type="file" accept="audio/*"></div>
+<div class="field"><label>DESCRIPTION / NOTES</label><textarea placeholder="Internal release notes"></textarea></div>
+<label class="check"><input type="checkbox"> This release contains explicit content</label>
+<label class="check"><input type="checkbox"> I own or control the rights to this release</label>
+<label class="check"><input type="checkbox"> I have checked all metadata and credits</label>
+<p><button class="btn" onclick="alert('Demo only — connect a real distribution backend to submit.')">SUBMIT RELEASE →</button></p>
+</div></section>
+
+<section id="artists" class="page"><h2 class="title">ARTISTS</h2><div class="grid"><div class="card"><h3>TXY</h3><p>Primary artist</p><p class="muted">Artist profile · releases · credits · identifiers</p></div><div class="card"><h3>ADD ARTIST</h3><p>Create another artist profile for collaborations, aliases or future projects.</p><button class="btn">ADD ARTIST</button></div></div><div class="notice"><b>Artist metadata</b><br><br>Artist name · primary/featured role · social links · artist image · genre · territory · platform IDs.</div></section>
+
+<section id="account" class="page"><h2 class="title">ACCOUNT</h2><div class="grid"><div class="card"><h3>PROFILE</h3><p>Name<br>Email<br>Country<br>Account type: Independent</p><button class="btn">EDIT</button></div><div class="card"><h3>DISTRIBUTION</h3><p>Provider name: TXY DISTRIBUTION<br>Plan: Personal<br>Backend: Not connected</p></div><div class="card"><h3>PAYMENTS</h3><p>Royalty collection and payout settings would be connected here when a real distributor/payment backend is added.</p></div><div class="card"><h3>SECURITY</h3><p>Password<br>Two-factor authentication<br>Sessions<br>Account recovery</p></div></div></section>
+
+<section id="about" class="page"><h2 class="title">ABOUT</h2><div class="steps"><div class="step">CREATE YOUR RELEASE<br><span class="muted">Enter metadata, upload audio and artwork, then check your credits.</span></div><div class="step">VALIDATE<br><span class="muted">Check required fields, artwork, audio specifications, identifiers and rights.</span></div><div class="step">DELIVER<br><span class="muted">A future distribution backend sends the release to supported DSPs.</span></div><div class="step">MONITOR<br><span class="muted">Track delivery, live status, takedowns, updates and catalog changes.</span></div></div><div class="notice"><b>IMPORTANT</b><br><br>This website is currently a front-end prototype. It does not actually deliver music to Spotify, Apple Music, YouTube Music or other DSPs, issue ISRCs, collect royalties, or create legal distribution agreements. Those functions require a legitimate distribution partner/backend.</div></section>
+</main>
+<footer class="footer"><span>© 2026 TXY DISTRIBUTION</span><span>PRIVACY · TERMS · CONTACT</span></footer>
+</div>
+<script>
+function unlock(){if(document.getElementById('pw').value==='70739'){sessionStorage.setItem('txy_auth','1');document.getElementById('login').style.display='none'}else document.getElementById('err').textContent='INCORRECT PASSWORD';return false}
+if(sessionStorage.getItem('txy_auth')==='1')document.getElementById('login').style.display='none';
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));[...document.querySelectorAll('.nav button')].find(x=>x.textContent.toLowerCase()==id)?.classList.add('active');scrollTo(0,0)}
+</script>
+</body></html>
